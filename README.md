@@ -5,3 +5,5 @@ El sistema se encuentra desarrollado en el framework laravel, por favor seguir l
 2. una vez instalado composer ejercutar el comando composer install para  instalar las dependencias
 3. utilizar un administrado de bases de datos sql (xampp, laragon).
 4. en la raiz del proyecto configurar la conexion a la base de datos.
+5. crear la base de datos en el gestor de base de datos
+6. ejecutar desde la terminal el comando php artisan migrate para crear las tablas
