@@ -17,8 +17,6 @@ class CreateTurnosTable extends Migration
             $table->id();
             $table->bigInteger('id_usuario');
             $table->string('tipo_turno',20);
-            $table->dateTime('fecha');
-            $table->Integer('orden');
             $table->string('estado',20);
             $table->timestamps();
         });
