@@ -19,6 +19,7 @@ class CreateTurnosTable extends Migration
             $table->string('tipo_turno',20);
             $table->string('estado',20);
             $table->timestamps();
+            $table->foreign('id_usuario')->references('id_documento')->on('usuarios');
         });
     }
 
