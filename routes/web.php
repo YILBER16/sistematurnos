@@ -16,7 +16,7 @@ use App\Http\Controllers\UsuariosController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('turnos.index');
 });
 Route::resource('/turnos',TurnosController::class);
 Route::get('/validacion', [TurnosController::class, 'validacion']);

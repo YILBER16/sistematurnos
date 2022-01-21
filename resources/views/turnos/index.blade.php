@@ -1,13 +1,17 @@
 @extends('layouts.layout')
 @section('contenido') 
 <div class="container">
-    <div class="row d-flex justify-content-center">
-        <h1>Bienvenido</h1>
-        <div class="form-group col-md-12">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal"> Tomar turno</button>
+        <h1 class="text-center">Bienvenido</h1>
+        <div class="row">
+          <div class="col text-center">
+              <button type="button" id="btnturnoregistrar" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#modal"> Tomar turno</button>
+          </div>
         </div>
-        <div class="form-group col-md-12">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalregistro"> Registro</button>
+        <br>
+        <div class="row">
+          <div class="col text-center">
+              <button type="button" id="btnregistrarusuario" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#modalregistro"> Registrar usuario</button>
+          </div>
         </div>
     </div>
     @section('titulo_modal_agregar')
@@ -35,7 +39,6 @@
     </form>
         @endsection
     @endsection
-</div>
 <script>
     $(document).on('click','#btnagregar', function(evt){
       evt.preventDefault();  
@@ -74,6 +77,15 @@
                   }
                 },
                 error:function(validator){
+                  console.log(validator);
+                  $.each(validator.responseJSON.errors, function(key, value){
+                    Swal.fire({
+                      icon: 'error',
+                      title:'Corrija los siguientes errores!',
+                      html: '<div><b>'+value[0]+'</b></div>',
+                      allowOutsideClick: false,
+                    })
+                  });
                 }
             });
         }
@@ -104,10 +116,29 @@
                 })
                 },
                 error:function(validator){
+                  console.log(validator);
+                  $.each(validator.responseJSON.errors, function(key, value){
+                    Swal.fire({
+                      icon: 'error',
+                      title:'Corrija los siguientes errores!',
+                      html: '<div><b>'+value[0]+'</b></div>',
+                      allowOutsideClick: false,
+                    })
+                  });
                 }
             });
         }
       })
+    });
+    $(document).on('click','#btnturnoregistrar', function(evt){
+      $('#id_usuario').val("");
+      $('#tipo_turno').val("");
+    });
+    $(document).on('click','#btnregistrarusuario', function(evt){
+      $('#id_documento').val("");
+      $('#nom_usuario').val("");
+      $('#edad').val("");
+      $('#genero').val("");
     });
 </script>
 @endsection

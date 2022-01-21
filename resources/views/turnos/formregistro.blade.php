@@ -3,7 +3,7 @@
     <div class="col-xs-6 col-sm-6 col-md-6">
         <div class="form-group">
         <label for="" class="">Numero de documento</label>
-        <input name="id_usuario" id="id_usuario" type="number" class="form-control">
+        <input name="id_documento" id="id_documento" type="number" class="form-control">
         </div>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-6">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuarios;
 use Illuminate\Http\Request;
+use App\Http\Requests\Usuariosrequest;
 
 class UsuariosController extends Controller
 {
@@ -33,10 +34,10 @@ class UsuariosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Usuariosrequest $request)
     {
         $data= new Usuarios();
-        $data->id_documento = $request->id_usuario;
+        $data->id_documento = $request->id_documento;
         $data->nom_usuario = $request->nom_usuario;
         $data->edad = $request->edad;
         $data->genero = $request->genero;

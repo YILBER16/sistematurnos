@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Turnos;
 use App\Models\Usuarios;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Requests\Turnosrequest;
+
 
 class TurnosController extends Controller
 {
@@ -35,7 +36,7 @@ class TurnosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Turnosrequest $request)
     {
         $usuario=Usuarios::where('id_documento',$request->id_usuario)->get()->last();
         if(!$usuario){
